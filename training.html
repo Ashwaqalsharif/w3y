@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التدريب | وَعْي W3Y</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <main class="hero-card">
+
+    <h1>تدريب اكتشاف الاحتيال الإلكتروني</h1>
+
+    <p>
+        شاهد الصورة جيدًا، ثم حدد هل المحتوى آمن أم احتيالي.
+    </p>
+<p id="question-progress">السؤال 1 من 3</p>
+    <h2 id="question-title">الصورة رقم 1</h2>
+
+    <img id="training-image"
+     src="images/training1.jpg"
+     alt="صورة تدريبية لاكتشاف الاحتيال"
+     width="400">
+
+    <h3>هل هذا المحتوى آمن أم احتيالي؟</h3>
+
+   <button type="button" onclick="checkAnswer('safe')">آمن</button>
+<button type="button" onclick="checkAnswer('fraud')">احتيالي</button>
+    <br><br>
+
+    <p id="feedback"></p>
+
+   <button type="button" id="next-btn" onclick="nextQuestion()" hidden>الصورة التالية</button> 
+
+    <br><br>
+
+    <a href="index.html">العودة إلى الصفحة الرئيسية</a>
+    </main>
+<script src="js/script.js"></script>
+</body>
+
+</html>

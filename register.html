@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إنشاء حساب | منصة وعي W3Y</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <main class="hero-card">
+
+    <h1>إنشاء حساب جديد</h1>
+    <p>مرحبًا بك في منصة وعي</p>
+
+    <form id="registerForm">
+        <label for="username">اسم المستخدم</label>
+        <br>
+        <input type="text" id="username" required>
+
+        <br><br>
+
+        <label for="password">كلمة المرور</label>
+        <br>
+        <input type="password" id="password" required>
+
+        <br><br>
+
+        <label for="confirmPassword">تأكيد كلمة المرور</label>
+        <br>
+        <input type="password" id="confirmPassword" required>
+
+        <br><br>
+
+        <button type="submit">إنشاء الحساب</button>
+    </form>
+
+    <p>لديك حساب بالفعل؟</p>
+    <a href="login.html">تسجيل الدخول</a>
+
+    <br><br>
+
+    <a href="index.html">العودة إلى الصفحة الرئيسية</a>
+    </main>
+<script>
+document.getElementById("registerForm").addEventListener("submit", async function(event) {
+    event.preventDefault();
+const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
+
+    if (password !== confirmPassword) {
+        alert("كلمتا المرور غير متطابقتين");
+        return;
+    }
+const response = await fetch("/api/register", {
+ method: "POST",
+ headers: { "Content-Type": "application/json" },
+ body: JSON.stringify({ username, password })   
+});
+const result = await response.json();
+if (response.ok) {
+alert(result.message || "تم إنشاء الحساب بنجاح");
+ } else {
+ alert(result.error || "تعذّر إنشاء الحساب");
+}       
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,456 @@
+/* ألوان منصة وَعْي */
+:root {
+  --navy: #101d38;
+  --teal: #27d3c3;
+  --white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  text-align: center;
+  direction: rtl;
+  font-family: Tahoma, Arial, sans-serif;
+  color: var(--white);
+  background: linear-gradient(135deg, #101d38, #193c59, #126a70);
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(30px, 5vw, 52px);
+}
+
+p {
+  margin: 0;
+  max-width: 600px;
+  font-size: 19px;
+  line-height: 1.9;
+  color: #dce9f1;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  margin-top: 12px;
+  padding: 15px 38px;
+  border: 1px solid var(--teal);
+  border-radius: 14px;
+  background: var(--teal);
+  color: var(--navy);
+  font: bold 18px Tahoma, Arial, sans-serif;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+
+button:hover {
+  background: #70f2e5;
+  transform: translateY(-2px);
+}
+/* بطاقة الصفحة الرئيسية */
+.hero-card {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 40px 30px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.09);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(12px);
+}
+
+.hero-card h1 {
+  margin-bottom: 20px;
+}
+
+.hero-card p {
+  margin: 0 auto 25px;
+}
+
+@media (max-width: 600px) {
+  .hero-card {
+    padding: 35px 20px;
+  }
+}
+/* تنسيق نموذج تسجيل الدخول */
+.hero-card form {
+  width: 100%;
+  max-width: 420px;
+  margin: 25px auto;
+  text-align: right;
+}
+
+.hero-card label {
+  display: inline-block;
+  margin-bottom: 8px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.hero-card input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #a8d9e2;
+  border-radius: 12px;
+  background: #ffffff;
+  color: #101d38;
+  font-size: 16px;
+  font-family: Tahoma, Arial, sans-serif;
+}
+
+.hero-card input:focus {
+  outline: 3px solid #27d3c3;
+  outline-offset: 2px;
+}
+
+.hero-card form button {
+  width: 100%;
+}
+
+.hero-card > a {
+  color: #ffffff;
+}
+/* تنسيق واجهة التدريب */
+#training-image {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  max-height: 300px;
+  height: auto;
+  object-fit: contain;
+  margin: 18px auto;
+  border-radius: 14px;
+  background: #ffffff;
+}
+
+#question-title {
+  margin: 18px 0 10px;
+  font-size: 25px;
+}
+
+.hero-card h3 {
+  margin: 14px 0;
+  font-size: 19px;
+}
+
+#feedback {
+  margin: 16px auto;
+  line-height: 1.8;
+}
+
+.hero-card button {
+  margin: 6px;
+}
+
+@media (max-width: 600px) {
+  #training-image {
+    max-height: 240px;
+  }
+}
+.hero-card h2 {
+  font-size: 24px;
+  margin-top: 24px;
+  margin-bottom: 12px;
+}
+
+.hero-card li {
+  text-align: right;
+  line-height: 1.9;
+  margin-bottom: 8px;
+}
+.hero-card {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+/* بطاقات إحصائيات نتيجة التدريب */
+.result-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 28px 0;
+}
+
+.stat-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 20px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.stat-card span {
+    font-size: 15px;
+}
+
+.stat-card strong {
+    font-size: 34px;
+    color: #70f2e5;
+}
+
+@media (max-width: 600px) {
+    .result-stats {
+        grid-template-columns: 1fr;
+    }
+}
+/* دائرة نسبة الإجابات الصحيحة */
+.score-circle {
+    --percentage: 0%;
+    width: 180px;
+    height: 180px;
+    margin: 22px auto 30px;
+    border-radius: 50%;
+    background: conic-gradient(#70f2e5 var(--percentage), rgba(255, 255, 255, 0.18) 0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    gap: 5px;
+}
+
+.score-circle::before {
+    content: "";
+    position: absolute;
+    inset: 12px;
+    border-radius: 50%;
+    background: #164778;
+}
+
+.score-circle span,
+.score-circle small {
+    position: relative;
+    z-index: 1;
+}
+
+.score-circle span {
+    font-size: 38px;
+    font-weight: bold;
+    color: #70f2e5;
+}
+
+.score-circle small {
+    font-size: 11px;
+    color: #ffffff;
+}
+/* ألوان بطاقات نتيجة التدريب */
+.result-stats .stat-card:nth-child(1) {
+    background: linear-gradient(135deg, #174b91, #1269b5);
+    border: 1px solid #3995ff;
+}
+
+.result-stats .stat-card:nth-child(2) {
+    background: linear-gradient(135deg, #075d68, #087f78);
+    border: 1px solid #20d6bd;
+}
+
+.result-stats .stat-card:nth-child(3) {
+   background: linear-gradient(135deg, #8b1e3f, #c6284e);
+border: 1px solid #ff4d6d; 
+}
+/* بطاقة مستوى الوعي المتوسط */
+#level {
+    display: table;
+    margin: 12px auto 24px;
+    padding: 14px 30px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #ffd43b, #ffeb70);
+    color: #17345b;
+    font-size: 20px;
+    font-weight: bold;
+    box-shadow: 0 0 18px rgba(255, 212, 59, 0.35);
+}
+/* لون رابط العودة إلى الصفحة الرئيسية ورمز البيت */
+a[href="index.html"] {
+    color: #70f2e5;
+}
+
+a[href="index.html"] svg,
+a[href="index.html"] i {
+    color: #70f2e5;
+    stroke: #70f2e5;
+}
+/* نقاط النصائح الأمنية باللون الأصفر */
+.hero-card li::marker {
+    color: #ffd43b;
+}
+/* تنسيق رموز بطاقات النتائج */
+.stat-card .stat-icon {
+    font-size: 30px;
+    line-height: 1;
+}
+
+.stat-card strong {
+    font-size: 36px;
+    color: #ffffff;
+}
+
+.stat-card span:last-child {
+    font-size: 15px;
+    font-weight: 600;
+}
+.result-stats .stat-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+}
+
+.result-stats .stat-card .stat-icon {
+    display: block;
+    font-size: 32px;
+}
+
+.result-stats .stat-card strong {
+    display: block;
+    font-size: 38px;
+}
+/* إزالة الإطار الداخلي مع الحفاظ على ألوان البطاقات */
+.result-stats .stat-card > .stat-card {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    width: 100%;
+}
+/* تنسيق بطاقات النصائح الأمنية */
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+    margin: 24px 0 30px;
+}
+
+.tip-card {
+    background: linear-gradient(135deg, #174778, #087f98);
+    border: 1px solid #36c5df;
+    border-radius: 18px;
+    padding: 22px 14px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.tip-icon {
+    display: block;
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+.tip-card h3 {
+    font-size: 18px;
+    margin: 0 0 10px;
+    color: #ffffff;
+}
+
+.tip-card p {
+    font-size: 14px;
+    line-height: 1.8;
+    margin: 0;
+    color: #e3f8ff;
+}
+
+@media (max-width: 850px) {
+    .tips-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .tips-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* أزرار صفحة النتيجة */
+.result-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin: 30px 0 12px;
+}
+
+.result-actions .result-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 230px;
+    padding: 15px 22px;
+    border-radius: 15px;
+    font-size: 17px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.result-actions .result-btn:hover {
+    transform: translateY(-3px);
+}
+
+/* زر إعادة التدريب */
+.result-actions .result-btn-primary {
+    background: linear-gradient(135deg, #10b981, #70f2e5);
+    color: #12345b;
+    border: 1px solid #70f2e5;
+}
+
+/* زر العودة للرئيسية */
+.result-actions .result-btn-outline {
+    background: rgba(13, 49, 93, 0.35);
+    color: #70f2e5;
+    border: 2px solid #70f2e5;
+}
+
+@media (max-width: 520px) {
+    .result-actions .result-btn {
+        width: 100%;
+        min-width: 0;
+    }
+}
+#question-progress {
+  display: inline-block;
+  padding: 8px 18px;
+  border: 1px solid #70f2e5;
+  border-radius: 30px;
+  background: rgba(112, 242, 229, 0.15);
+  color: #70f2e5;
+  font-weight: bold;
+}
+/* بطاقة شرح الإجابة */
+#feedback:not(:empty) {
+  padding: 16px 20px;
+  border-radius: 14px;
+  line-height: 1.9;
+  max-width: 600px;
+  margin: 18px auto;
+  font-weight: bold;
+}
+
+#feedback.feedback-correct {
+  background: rgba(16, 185, 129, 0.2);
+  border: 1px solid #10b981;
+  color: #d1fae5;
+}
+
+#feedback.feedback-wrong {
+  background: rgba(239, 68, 68, 0.2);
+  border: 1px solid #ef4444;
+  color: #ffe4e6;
+}
