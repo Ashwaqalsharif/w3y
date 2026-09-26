@@ -76,13 +76,13 @@ class W3YHandler(BaseHTTPRequestHandler):
            return
         if self.path == "/api/login":
             db_path = BASE_DIR / "database" / "w3y.db"
-            password_hash = hashlib.sha256(password.encode("utf-8")).hexdigest()
+            
             with sqlite3.connect(db_path) as connection:
                 user = connection.execute(
                     "SELECT password_hash FROM users WHERE username = ?",
                     (username,)
                 ).fetchone()
-            if user is None or user[0] != password_hash:
+            if user is None or not verify_password(password, user[0]):
                 self.send_json(401, {"error": "اسم المستخدم أو كلمة المرور غير صحيحة"})
                 return 
             self.send_json(200, {"message": "تم تسجيل الدخول بنجاح"}) 
@@ -91,7 +91,7 @@ class W3YHandler(BaseHTTPRequestHandler):
             self.send_json(404, {"error": "المسار غير موجود"})
             return
         db_path = BASE_DIR / "database" / "w3y.db"
-        password_hash = hashlib.sha256(password.encode("utf-8")).hexdigest()
+        password_hash = hash_password(password)
         with sqlite3.connect(db_path) as connection:
             connection.execute(
                 "INSERT INTO users (username, password_hash) VALUES (?, ?)",
