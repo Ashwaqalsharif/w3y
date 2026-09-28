@@ -8,6 +8,16 @@ if (total > 0) {
         score + " من " + total;
 
     const percentage = (score / total) * 100;
+    const roundedPercentage = Math.round(percentage);
+
+const history = JSON.parse(localStorage.getItem("w3yHistory")) || [];
+
+history.push({
+    percentage: roundedPercentage,
+    date: new Date().toLocaleDateString("ar-SA")
+});
+
+localStorage.setItem("w3yHistory", JSON.stringify(history));
 document.getElementById("score-percentage").textContent = Math.round(percentage) + "%";
 document.getElementById("score-circle").style.setProperty("--percentage", percentage + "%");
     let level;

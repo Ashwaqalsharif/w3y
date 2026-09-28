@@ -175,7 +175,7 @@ button:hover {
     padding-bottom: 15px;
 }
 /* بطاقات إحصائيات نتيجة التدريب */
-.result-stats {
+.report-summary {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 12px;
@@ -188,10 +188,29 @@ button:hover {
     align-items: center;
     justify-content: center;
     gap: 12px;
-    padding: 20px 10px;
+
+    width: 180px;
+    height: 180px;
+    padding: 15px;
+    box-sizing: border-box;
+
     border: 1px solid rgba(255, 255, 255, 0.25);
-    border-radius: 18px;
+    border-radius: 50%;
     background: rgba(255, 255, 255, 0.12);
+}
+.report-summary .stat-card:nth-child(1) {
+    background: rgba(34, 211, 238, 0.22);
+    border: 2px solid #22d3ee;
+}
+
+.report-summary .stat-card:nth-child(2) {
+    background: rgba(16, 185, 129, 0.22);
+    border: 2px solid #10b981;
+}
+
+.report-summary .stat-card:nth-child(3) {
+    background: rgba(168, 85, 247, 0.22);
+    border: 2px solid #a855f7;
 }
 
 .stat-card span {
@@ -453,4 +472,45 @@ a[href="index.html"] i {
   background: rgba(239, 68, 68, 0.2);
   border: 1px solid #ef4444;
   color: #ffe4e6;
+}
+
+/* تنسيق صفحة تقرير التقدم */
+.report-card {
+    max-width: 850px;
+    margin: 30px auto;
+}
+
+#progressChart {
+    width: 100% !important;
+    height: 280px !important;
+    max-height: 280px;
+}
+#progressChart {
+    width: 100% !important;
+    height: 260px !important;
+    max-height: 260px !important;
+}
+
+.chart-container {
+    max-width: 750px;
+    height: 300px;
+    margin: 20px auto;
+}
+/* ترتيب سجل النتائج */
+#history {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin: 15px auto 25px;
+}
+
+#history p {
+    margin: 0;
+    padding: 10px 18px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.08);
+    min-width: 130px;
+    text-align: center;
 }

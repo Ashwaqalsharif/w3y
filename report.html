@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تقرير التقدم | وَعْي W3Y</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <main class="hero-card report-card">
+
+        <h1>📊 تقرير تقدمي</h1>
+        <p>تابعي مستوى وعيك وتطور نتائجك في التدريبات السابقة</p>
+
+        <div class="report-summary">
+
+            <div class="stat-card">
+                <h3>عدد مرات التدريب</h3>
+                <p id="attempts">0</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>أفضل نتيجة</h3>
+                <p id="best-score">0%</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>آخر نتيجة</h3>
+                <p id="last-score">0%</p>
+            </div>
+
+        </div>
+
+        <h2>سجل النتائج</h2>
+
+        <div id="history">
+            <p>لا توجد نتائج سابقة حتى الآن.</p>
+        </div>
+<div class="chart-container">
+    <h2>📈 تطور مستوى الوعي</h2>
+    <canvas id="progressChart"></canvas>
+</div>
+<div class="awareness-analysis">
+    <h2>🧠 تحليل مستوى الوعي</h2>
+    <p id="awareness-analysis">جاري تحليل مستواك...</p>
+</div>
+        <br>
+
+        <a href="training.html">
+            <button type="button">إعادة التدريب</button>
+        </a>
+
+        <a href="index.html">
+            <button type="button">العودة للرئيسية</button>
+        </a>
+
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+    <script src="js/report.js"></script>
+
+</body>
+</html>
