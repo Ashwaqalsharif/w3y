@@ -13,7 +13,16 @@ def get_db_connection():
     connection = sqlite3.connect(DB_PATH)
     connection.row_factory = sqlite3.Row
     return connection
-
+def init_database():
+    with get_db_connection() as connection:
+        connection.execute("""
+            CREATE TABLE IF NOT EXISTS users (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                username TEXT UNIQUE NOT NULL,
+                password_hash TEXT NOT NULL
+            )
+        """)
+        connection.commit()
 def hash_password(password, salt=None):
     if salt is None:
         salt = secrets.token_bytes(16)
@@ -22,7 +31,7 @@ def hash_password(password, salt=None):
     )
     return salt.hex() + ":" + password_hash.hex()
 
-def verify_password(password, stored_hash):
+def verify_password(password, stored_hash): 
     try:
         salt_hex, hash_hex = stored_hash.split(":", 1)
         salt = bytes.fromhex(salt_hex)
@@ -99,6 +108,7 @@ class W3YHandler(BaseHTTPRequestHandler):
             )
         self.send_json(201, {"message": "تم إنشاء الحساب بنجاح"})
 if __name__ == "__main__":
+    init_database()
     port = int(os.environ.get("PORT", 8000))
     server = HTTPServer(("0.0.0.0", port), W3YHandler)
     server.serve_forever()
