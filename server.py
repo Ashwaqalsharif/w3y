@@ -5,7 +5,7 @@ import json
 import hashlib
 import hmac
 import secrets
-
+import os
 BASE_DIR = Path(__file__).resolve().parent
 DB_PATH = BASE_DIR / "database" / "w3y.db"
 
@@ -99,7 +99,8 @@ class W3YHandler(BaseHTTPRequestHandler):
             )
         self.send_json(201, {"message": "تم إنشاء الحساب بنجاح"})
 if __name__ == "__main__":
-    server = HTTPServer(("127.0.0.1", 8000), W3YHandler)
+    port = int(os.environ.get("PORT", 8000))
+    server = HTTPServer(("0.0.0.0", port), W3YHandler)
     server.serve_forever()
 
      
