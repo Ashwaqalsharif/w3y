@@ -514,3 +514,11 @@ a[href="index.html"] i {
     min-width: 130px;
     text-align: center;
 }
+.result-stats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin: 30px auto;
+}
